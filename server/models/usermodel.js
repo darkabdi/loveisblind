@@ -23,6 +23,7 @@ const User = new mongoose.Schema({
       type: String 
     },
     interests: {
+      type: String
 
     },
 

@@ -5,7 +5,7 @@ export default function Register() {
   
 
   const [firstname, setFirstname]       = useState('')
-  const [lastname, setLastname]         = useState('')
+  const [date, setDate]                 = useState('')
   const [email, setEmail]               = useState('')
   const [password, setPassword]         = useState('')
   const [errorFname, setErrorFname]     = useState('')
@@ -14,6 +14,7 @@ export default function Register() {
   const firstnameChanged                = e => setFirstname(e.target.value)
   const passwordChanged                 = e => setPassword(e.target.value)
   const emailChanged                    = e => setEmail(e.target.value)
+  const dateChanged                    = e => setDate(e.target.value)
  
   useEffect(()=>{
   document.title += " | Register"
@@ -95,7 +96,7 @@ export default function Register() {
                 
         />
       <br></br> <small htmlFor="firstname" className='err-msg'><em>{errorFname}</em></small><br></br> 
-
+                  
             <input
                 type        ="email"
                 id          ="email"
@@ -116,6 +117,16 @@ export default function Register() {
                 pattern     =".{4,}"
                 onChange    ={passwordChanged}
             /> <br></br> <small htmlFor="password" className='err-msg'><em>{errorPswd}</em></small><br></br> 
+                       
+                        <input
+                type        ="date"
+                id          ="date"
+                name        ="date"
+                placeholder ='Date'
+                value       ={date}
+                pattern     ="\d{1,2}/\d{1,2}/\d{4}"
+                onChange    ={dateChanged}
+                /> 
 
         <input type="submit" id="submitbtn" value="Register"/>
       </form> 
