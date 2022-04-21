@@ -7,7 +7,6 @@ import {
 
 //components
 import Navbar from './Components/Navbar.jsx';
-import Footer from './Components/Footer.jsx';
 import Header from './Components/Header.jsx';
 import './App.css';
 import './Form.css'
@@ -30,7 +29,7 @@ function App() {
     return (
 <div className="App">
       <Router>
-        <Header/>
+       
   
           <main className="main">
             <div className="content">
@@ -45,7 +44,7 @@ function App() {
             </div>
           </main>  
     
-      <Footer />
+     
       </Router>
 </div>
     
