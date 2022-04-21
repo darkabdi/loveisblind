@@ -32,10 +32,10 @@ app.get('/api', (req, res) => {
 /**************REGISTER***************/
 app.post('/register', async (req,res, next) =>{
     try {
-        const { firstname, lastname, email, password } = req.body;
+        const { firstname, email, password } = req.body;
         console.log(req.body)
 
-        if (!(email && password && firstname && lastname)) {
+        if (!(email && password && firstname)) {
             return res.status(400).send("All inputs are required");
         }
         console.log(email)
@@ -52,7 +52,6 @@ app.post('/register', async (req,res, next) =>{
         
         const user = await User.create({
             firstname,
-            lastname,
             email: email.toLowerCase(),
             password: securePassword,
             isLoggedIn: false,

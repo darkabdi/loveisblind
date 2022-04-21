@@ -9,12 +9,9 @@ export default function Register() {
   const [email, setEmail]               = useState('')
   const [password, setPassword]         = useState('')
   const [errorFname, setErrorFname]     = useState('')
-  const [errorLname, setErrorLname]     = useState('')
   const [errorEmail, setErrorEmail]     = useState('')
   const [errorPswd, setErrorPswd]       = useState('')
-  
   const firstnameChanged                = e => setFirstname(e.target.value)
-  const lastnameChanged                 = e => setLastname(e.target.value)
   const passwordChanged                 = e => setPassword(e.target.value)
   const emailChanged                    = e => setEmail(e.target.value)
  
@@ -34,18 +31,6 @@ export default function Register() {
       return;
     } 
   }, [firstname])
-
-  useEffect(() => {
-  if(lastname.length < 3){
-    setErrorLname('Lastname is to short')
-    return;
-    }
-     else{
-      setErrorLname('')
-      return;
-    }
-    
-  }, [lastname])
   
   useEffect(() => {
     if(password.length < 4){
@@ -72,7 +57,6 @@ export default function Register() {
       },
       body: JSON.stringify({
         firstname,
-        lastname,
         email,
         password
       })
@@ -111,19 +95,6 @@ export default function Register() {
                 
         />
       <br></br> <small htmlFor="firstname" className='err-msg'><em>{errorFname}</em></small><br></br> 
-    
-
-      
-            <input 
-                type      ="text"
-                id        ="lastname"
-                name      ="lastname"
-                placeholder='Last name'
-                value     ={lastname}
-                pattern   ='.{3,}'
-                onChange  ={lastnameChanged}
-            /> 
-           <br></br> <small htmlFor="lastname" className='err-msg'><em>{errorLname}</em></small><br></br> 
 
             <input
                 type        ="email"
